@@ -1,0 +1,59 @@
+# Configurazione delle sezioni del sito
+# L'ordine in questo file determina l'ordine nel sito finale
+
+sections:
+  - file: src/sections/navigation.html
+    id: navigation
+    name: "Navigazione"
+
+  - file: src/sections/hero.html
+    id: hero
+    name: "Hero Section"
+
+  - file: src/sections/scopo.html
+    id: scopo
+    name: "Il nostro Scopo"
+    new: true
+
+  - file: src/sections/chi-siamo.html
+    id: chi-siamo
+    name: "Chi Siamo"
+
+  - file: src/sections/neuroscienza.html
+    id: neuroscienza
+    name: "Basi Neuroscientifiche"
+
+  - file: src/sections/approccio-integrato.html
+    id: approccio
+    name: "Approccio Integrato"
+
+  - file: src/sections/aree-terapeutiche.html
+    id: aree
+    name: "Aree Terapeutiche"
+    new: true
+
+  - file: src/sections/professionisti-list.html
+    id: professionisti-list
+    name: "Lista Professionisti"
+    new: true
+
+  - file: src/sections/persone.html
+    id: persone
+    name: "Per le Persone"
+
+  - file: src/sections/imprese.html
+    id: imprese
+    name: "Per le Imprese"
+
+  - file: src/sections/professionisti.html
+    id: professionisti
+    name: "Per i Professionisti"
+
+  - file: src/sections/gigey-pianeta.html
+    id: pianeta
+    name: "Gigey è il tuo Nuovo Pianeta"
+    new: true
+
+  - file: src/sections/contatti.html
+    id: contatti
+    name: "Contatti"
