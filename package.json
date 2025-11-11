@@ -1,0 +1,13 @@
+{
+  "name": "gigey-static",
+  "version": "1.0.0",
+  "description": "Gigey.it static website",
+  "scripts": {
+    "dev": "http-server gigey.it -p 8000",
+    "start": "http-server gigey.it -p 3000"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
