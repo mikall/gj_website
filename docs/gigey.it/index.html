@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it-IT" class="no-js scheme_light">
+<!-- Mirrored from gigey.it/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 22 Oct 2025 14:45:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<!-- HEAD SECTION WILL BE LOADED HERE -->
+<div id="head-placeholder"></div>
+
+<!-- HEADER SECTION WILL BE LOADED HERE -->
+<div id="header-placeholder"></div>
+
+<!-- CONTENT SECTION WILL BE LOADED HERE -->
+<div id="content-placeholder"></div>
+
+<script>
+// Funzione per caricare e inserire le sezioni HTML
+async function loadHTMLSection(file, placeholderId) {
+    try {
+        const response = await fetch(file);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const html = await response.text();
+        const placeholder = document.getElementById(placeholderId);
+
+        // Se è la sezione head, inseriamo il contenuto nel <head>
+        if (placeholderId === 'head-placeholder') {
+            // Rimuoviamo il placeholder dal body
+            placeholder.remove();
+            // Inseriamo il contenuto nel head
+            document.head.insertAdjacentHTML('beforeend', html);
+        } else {
+            // Per header e content, sostituiamo il placeholder
+            placeholder.outerHTML = html;
+        }
+
+        console.log(`✓ Caricato: ${file}`);
+    } catch (error) {
+        console.error(`✗ Errore nel caricamento di ${file}:`, error);
+        document.getElementById(placeholderId).innerHTML =
+            `<p style="color: red;">Errore nel caricamento di ${file}</p>`;
+    }
+}
+
+// Funzione per eseguire gli script caricati dinamicamente
+function executeScripts() {
+    // Gli script inline nel head verranno eseguiti automaticamente
+    // Gli script esterni verranno caricati normalmente
+    console.log('✓ Scripts pronti per l\'esecuzione');
+}
+
+// Carica tutte le sezioni in ordine
+async function loadAllSections() {
+    console.log('🔄 Inizio caricamento sezioni...');
+
+    // Carica prima il head (CSS e meta tags)
+    await loadHTMLSection('head-section.html', 'head-placeholder');
+
+    // Poi carica header e content in parallelo
+    await Promise.all([
+        loadHTMLSection('header-section.html', 'header-placeholder'),
+        loadHTMLSection('content-section.html', 'content-placeholder')
+    ]);
+
+    // Esegui eventuali script necessari
+    executeScripts();
+
+    console.log('✅ Tutte le sezioni sono state caricate!');
+}
+
+// Avvia il caricamento quando il DOM è pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadAllSections);
+} else {
+    loadAllSections();
+}
+</script>
+
+</html>
