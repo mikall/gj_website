@@ -248,24 +248,37 @@ input.wpcf7-submit {
 	}
 }
 
-/* SPACING INTERNO SEZIONE #chi - Separa "Il nostro Scopo" da "COS'È" */
-#chi .elementor-column {
-	margin-bottom: 80px !important;
-}
-
-#chi .elementor-column:last-child {
-	margin-bottom: 0 !important;
+/* SPACING SEZIONE #chi - Riduce padding-top per portare contenuto più su */
+#chi {
+	padding-top: 60px !important;
 }
 
 @media screen and (max-width: 1279px) {
-	#chi .elementor-column {
-		margin-bottom: 60px !important;
+	#chi {
+		padding-top: 50px !important;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	#chi .elementor-column {
-		margin-bottom: 40px !important;
+	#chi {
+		padding-top: 40px !important;
+	}
+}
+
+/* Aggiunge spazio sopra "COS'È" per separarlo dal testo precedente */
+#chi .elementor-element-ebf3f30 {
+	margin-top: 120px !important;
+}
+
+@media screen and (max-width: 1279px) {
+	#chi .elementor-element-ebf3f30 {
+		margin-top: 100px !important;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#chi .elementor-element-ebf3f30 {
+		margin-top: 80px !important;
 	}
 }
 
