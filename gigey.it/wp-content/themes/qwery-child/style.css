@@ -176,3 +176,113 @@ input.wpcf7-submit {
 		display: none;
 	}
 }
+
+/*=====================================================
+  SECTION SPACING AND DECORATIVE ELEMENTS
+=====================================================*/
+
+/* Aggiungi padding superiore alle sezioni dark che seguono sezioni light */
+.scheme_light + .scheme_dark {
+	margin-top: 80px;
+	position: relative;
+}
+
+/* Aggiungi padding superiore alle sezioni light che seguono sezioni dark */
+.scheme_dark + .scheme_light {
+	margin-top: 80px;
+	position: relative;
+}
+
+/* Responsive spacing per tablet */
+@media screen and (max-width: 1279px) {
+	.scheme_light + .scheme_dark,
+	.scheme_dark + .scheme_light {
+		margin-top: 60px;
+	}
+}
+
+/* Responsive spacing per mobile */
+@media screen and (max-width: 767px) {
+	.scheme_light + .scheme_dark,
+	.scheme_dark + .scheme_light {
+		margin-top: 40px;
+	}
+}
+
+/* Elemento decorativo: linea ondulata tra le sezioni */
+.scheme_light + .scheme_dark::before,
+.scheme_dark + .scheme_light::before {
+	content: '';
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 120px;
+	height: 3px;
+	background: linear-gradient(90deg, transparent, #BC1543, transparent);
+	border-radius: 2px;
+}
+
+/* Variante con cerchi decorativi */
+.scheme_dark + .scheme_light::after {
+	content: '';
+	position: absolute;
+	top: -50px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 10px;
+	height: 10px;
+	background: #BC1543;
+	border-radius: 50%;
+	box-shadow:
+		-30px 0 0 0 rgba(188, 21, 67, 0.4),
+		30px 0 0 0 rgba(188, 21, 67, 0.4),
+		-60px 0 0 0 rgba(188, 21, 67, 0.2),
+		60px 0 0 0 rgba(188, 21, 67, 0.2);
+}
+
+/* Nascondi cerchi decorativi su mobile per semplicità */
+@media screen and (max-width: 767px) {
+	.scheme_dark + .scheme_light::after {
+		display: none;
+	}
+}
+
+/* Curva SVG decorativa opzionale - da applicare a sezioni specifiche con classe custom */
+.section-with-curve {
+	position: relative;
+	overflow: visible;
+}
+
+.section-with-curve::before {
+	content: '';
+	position: absolute;
+	top: -80px;
+	left: 0;
+	width: 100%;
+	height: 80px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath d='M0,0 Q300,80 600,40 T1200,0 L1200,80 L0,80 Z' fill='%23BC1543' opacity='0.1'/%3E%3C/svg%3E");
+	background-size: cover;
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+
+/* Aggiungi padding extra alle sezioni con background per evitare sovrapposizioni */
+.elementor-section[data-settings*="background_background"] {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+@media screen and (max-width: 1279px) {
+	.elementor-section[data-settings*="background_background"] {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.elementor-section[data-settings*="background_background"] {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+}
