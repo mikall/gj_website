@@ -178,19 +178,19 @@ input.wpcf7-submit {
 }
 
 /*=====================================================
-  MENU FIX - Mostra menu desktop su schermi > 600px
+  MENU FIX - Usa breakpoint del tema (1280px desktop, 768px tablet)
 =====================================================*/
 
-/* Mostra menu desktop su schermi > 600px */
-@media screen and (min-width: 601px) {
+/* Mostra menu desktop su schermi >= 1280px */
+@media screen and (min-width: 1280px) {
 	.sc_layouts_hide_on_mobile,
 	.sc_layouts_hide_on_tablet {
 		display: flex !important;
 	}
 }
 
-/* Nascondi menu mobile su schermi > 600px */
-@media screen and (min-width: 601px) {
+/* Nascondi menu mobile/burger su schermi >= 1280px */
+@media screen and (min-width: 1280px) {
 	.sc_layouts_hide_on_wide,
 	.sc_layouts_hide_on_desktop,
 	.sc_layouts_hide_on_notebook {
@@ -198,16 +198,16 @@ input.wpcf7-submit {
 	}
 }
 
-/* Nascondi menu desktop su schermi <= 600px */
-@media screen and (max-width: 600px) {
+/* Nascondi menu desktop su schermi < 1280px */
+@media screen and (max-width: 1279px) {
 	.sc_layouts_hide_on_mobile,
 	.sc_layouts_hide_on_tablet {
 		display: none !important;
 	}
 }
 
-/* Mostra menu mobile su schermi <= 600px */
-@media screen and (max-width: 600px) {
+/* Mostra menu mobile/burger su schermi < 1280px */
+@media screen and (max-width: 1279px) {
 	.sc_layouts_hide_on_wide,
 	.sc_layouts_hide_on_desktop,
 	.sc_layouts_hide_on_notebook {
