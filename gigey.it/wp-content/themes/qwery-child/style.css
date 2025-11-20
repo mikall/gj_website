@@ -182,36 +182,36 @@ input.wpcf7-submit {
 =====================================================*/
 
 /* Aggiungi padding superiore e inferiore a tutte le sezioni con colore di sfondo */
-.scheme_dark[data-settings*="background_background"],
-.scheme_light[data-settings*="background_background"] {
-	padding-top: 100px !important;
-	padding-bottom: 100px !important;
+.scheme_dark,
+.scheme_light {
+	padding-top: 120px !important;
+	padding-bottom: 120px !important;
 	position: relative;
 }
 
 /* Responsive spacing per tablet */
 @media screen and (max-width: 1279px) {
-	.scheme_dark[data-settings*="background_background"],
-	.scheme_light[data-settings*="background_background"] {
-		padding-top: 80px !important;
-		padding-bottom: 80px !important;
+	.scheme_dark,
+	.scheme_light {
+		padding-top: 100px !important;
+		padding-bottom: 100px !important;
 	}
 }
 
 /* Responsive spacing per mobile */
 @media screen and (max-width: 767px) {
-	.scheme_dark[data-settings*="background_background"],
-	.scheme_light[data-settings*="background_background"] {
-		padding-top: 60px !important;
-		padding-bottom: 60px !important;
+	.scheme_dark,
+	.scheme_light {
+		padding-top: 80px !important;
+		padding-bottom: 80px !important;
 	}
 }
 
 /* Elemento decorativo: linea con gradiente sopra ogni sezione dark */
-.scheme_dark[data-settings*="background_background"]::before {
+.scheme_dark::before {
 	content: '';
 	position: absolute;
-	top: 40px;
+	top: 50px;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 120px;
@@ -222,10 +222,10 @@ input.wpcf7-submit {
 }
 
 /* Elemento decorativo: cerchi sopra ogni sezione light */
-.scheme_light[data-settings*="background_background"]::before {
+.scheme_light::before {
 	content: '';
 	position: absolute;
-	top: 40px;
+	top: 50px;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 10px;
@@ -242,35 +242,45 @@ input.wpcf7-submit {
 
 /* Nascondi decorazioni su mobile per semplicità */
 @media screen and (max-width: 767px) {
-	.scheme_dark[data-settings*="background_background"]::before,
-	.scheme_light[data-settings*="background_background"]::before {
+	.scheme_dark::before,
+	.scheme_light::before {
 		display: none;
 	}
 }
 
-/* Margin-top aggiuntivo tra sezioni per creare spazio visivo */
-.scheme_dark,
-.scheme_light {
-	margin-top: 0;
-	margin-bottom: 0;
+/* SPACING INTERNO SEZIONE #chi - Separa "Il nostro Scopo" da "COS'È" */
+#chi .elementor-column {
+	margin-bottom: 80px !important;
 }
 
-/* Aggiungi uno spacer visivo tra le sezioni principali */
-.elementor-section.scheme_dark + section:not(.scheme_dark):not(.scheme_light),
-.elementor-section.scheme_light + section:not(.scheme_dark):not(.scheme_light) {
-	min-height: 80px;
+#chi .elementor-column:last-child {
+	margin-bottom: 0 !important;
 }
 
 @media screen and (max-width: 1279px) {
-	.elementor-section.scheme_dark + section:not(.scheme_dark):not(.scheme_light),
-	.elementor-section.scheme_light + section:not(.scheme_dark):not(.scheme_light) {
-		min-height: 60px;
+	#chi .elementor-column {
+		margin-bottom: 60px !important;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	.elementor-section.scheme_dark + section:not(.scheme_dark):not(.scheme_light),
-	.elementor-section.scheme_light + section:not(.scheme_dark):not(.scheme_light) {
-		min-height: 40px;
+	#chi .elementor-column {
+		margin-bottom: 40px !important;
+	}
+}
+
+/* Aggiungi spazio extra tra heading dentro le sezioni dark */
+.scheme_dark .elementor-widget-heading {
+	margin-bottom: 40px !important;
+}
+
+.scheme_dark .elementor-widget-text-editor {
+	margin-bottom: 40px !important;
+}
+
+@media screen and (max-width: 767px) {
+	.scheme_dark .elementor-widget-heading,
+	.scheme_dark .elementor-widget-text-editor {
+		margin-bottom: 30px !important;
 	}
 }
