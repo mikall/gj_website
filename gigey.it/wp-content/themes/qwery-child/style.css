@@ -178,19 +178,19 @@ input.wpcf7-submit {
 }
 
 /*=====================================================
-  MENU FIX - Usa breakpoint del tema (1280px desktop, 768px tablet)
+  MENU FIX - Breakpoint standard (1024px desktop, 768px tablet)
 =====================================================*/
 
-/* Mostra menu desktop su schermi >= 1280px */
-@media screen and (min-width: 1280px) {
+/* Mostra menu desktop su schermi >= 1024px */
+@media screen and (min-width: 1024px) {
 	.sc_layouts_hide_on_mobile,
 	.sc_layouts_hide_on_tablet {
 		display: flex !important;
 	}
 }
 
-/* Nascondi menu mobile/burger su schermi >= 1280px */
-@media screen and (min-width: 1280px) {
+/* Nascondi menu mobile/burger su schermi >= 1024px */
+@media screen and (min-width: 1024px) {
 	.sc_layouts_hide_on_wide,
 	.sc_layouts_hide_on_desktop,
 	.sc_layouts_hide_on_notebook {
@@ -198,16 +198,16 @@ input.wpcf7-submit {
 	}
 }
 
-/* Nascondi menu desktop su schermi < 1280px */
-@media screen and (max-width: 1279px) {
+/* Nascondi menu desktop su schermi < 1024px */
+@media screen and (max-width: 1023px) {
 	.sc_layouts_hide_on_mobile,
 	.sc_layouts_hide_on_tablet {
 		display: none !important;
 	}
 }
 
-/* Mostra menu mobile/burger su schermi < 1280px */
-@media screen and (max-width: 1279px) {
+/* Mostra menu mobile/burger su schermi < 1024px */
+@media screen and (max-width: 1023px) {
 	.sc_layouts_hide_on_wide,
 	.sc_layouts_hide_on_desktop,
 	.sc_layouts_hide_on_notebook {
@@ -229,7 +229,7 @@ input.wpcf7-submit {
 }
 
 /* Responsive spacing per tablet */
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1023px) {
 	.page_content_wrap .elementor-section.scheme_dark,
 	.page_content_wrap .elementor-section.scheme_light {
 		padding-top: 100px !important;
@@ -292,7 +292,7 @@ input.wpcf7-submit {
 	padding-top: 60px !important;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1023px) {
 	#chi {
 		padding-top: 50px !important;
 	}
@@ -309,7 +309,7 @@ input.wpcf7-submit {
 	margin-top: 120px !important;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1023px) {
 	#chi .elementor-element-ebf3f30 {
 		margin-top: 100px !important;
 	}
