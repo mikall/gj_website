@@ -182,8 +182,9 @@ input.wpcf7-submit {
 =====================================================*/
 
 /* Aggiungi padding superiore e inferiore a tutte le sezioni con colore di sfondo */
-.scheme_dark,
-.scheme_light {
+/* ESCLUSO l'header per non rompere il menu */
+.page_content_wrap .scheme_dark,
+.page_content_wrap .scheme_light {
 	padding-top: 120px !important;
 	padding-bottom: 120px !important;
 	position: relative;
@@ -191,8 +192,8 @@ input.wpcf7-submit {
 
 /* Responsive spacing per tablet */
 @media screen and (max-width: 1279px) {
-	.scheme_dark,
-	.scheme_light {
+	.page_content_wrap .scheme_dark,
+	.page_content_wrap .scheme_light {
 		padding-top: 100px !important;
 		padding-bottom: 100px !important;
 	}
@@ -200,15 +201,15 @@ input.wpcf7-submit {
 
 /* Responsive spacing per mobile */
 @media screen and (max-width: 767px) {
-	.scheme_dark,
-	.scheme_light {
+	.page_content_wrap .scheme_dark,
+	.page_content_wrap .scheme_light {
 		padding-top: 80px !important;
 		padding-bottom: 80px !important;
 	}
 }
 
 /* Elemento decorativo: linea con gradiente sopra ogni sezione dark */
-.scheme_dark::before {
+.page_content_wrap .scheme_dark::before {
 	content: '';
 	position: absolute;
 	top: 50px;
@@ -222,7 +223,7 @@ input.wpcf7-submit {
 }
 
 /* Elemento decorativo: cerchi sopra ogni sezione light */
-.scheme_light::before {
+.page_content_wrap .scheme_light::before {
 	content: '';
 	position: absolute;
 	top: 50px;
@@ -242,8 +243,8 @@ input.wpcf7-submit {
 
 /* Nascondi decorazioni su mobile per semplicità */
 @media screen and (max-width: 767px) {
-	.scheme_dark::before,
-	.scheme_light::before {
+	.page_content_wrap .scheme_dark::before,
+	.page_content_wrap .scheme_light::before {
 		display: none;
 	}
 }
@@ -283,17 +284,17 @@ input.wpcf7-submit {
 }
 
 /* Aggiungi spazio extra tra heading dentro le sezioni dark */
-.scheme_dark .elementor-widget-heading {
+.page_content_wrap .scheme_dark .elementor-widget-heading {
 	margin-bottom: 40px !important;
 }
 
-.scheme_dark .elementor-widget-text-editor {
+.page_content_wrap .scheme_dark .elementor-widget-text-editor {
 	margin-bottom: 40px !important;
 }
 
 @media screen and (max-width: 767px) {
-	.scheme_dark .elementor-widget-heading,
-	.scheme_dark .elementor-widget-text-editor {
+	.page_content_wrap .scheme_dark .elementor-widget-heading,
+	.page_content_wrap .scheme_dark .elementor-widget-text-editor {
 		margin-bottom: 30px !important;
 	}
 }
