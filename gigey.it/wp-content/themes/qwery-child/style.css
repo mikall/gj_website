@@ -178,13 +178,51 @@ input.wpcf7-submit {
 }
 
 /*=====================================================
+  MENU FIX - Mostra menu desktop su schermi > 600px
+=====================================================*/
+
+/* Mostra menu desktop su schermi > 600px */
+@media screen and (min-width: 601px) {
+	.sc_layouts_hide_on_mobile,
+	.sc_layouts_hide_on_tablet {
+		display: flex !important;
+	}
+}
+
+/* Nascondi menu mobile su schermi > 600px */
+@media screen and (min-width: 601px) {
+	.sc_layouts_hide_on_wide,
+	.sc_layouts_hide_on_desktop,
+	.sc_layouts_hide_on_notebook {
+		display: none !important;
+	}
+}
+
+/* Nascondi menu desktop su schermi <= 600px */
+@media screen and (max-width: 600px) {
+	.sc_layouts_hide_on_mobile,
+	.sc_layouts_hide_on_tablet {
+		display: none !important;
+	}
+}
+
+/* Mostra menu mobile su schermi <= 600px */
+@media screen and (max-width: 600px) {
+	.sc_layouts_hide_on_wide,
+	.sc_layouts_hide_on_desktop,
+	.sc_layouts_hide_on_notebook {
+		display: flex !important;
+	}
+}
+
+/*=====================================================
   SECTION SPACING AND DECORATIVE ELEMENTS
 =====================================================*/
 
 /* Aggiungi padding superiore e inferiore a tutte le sezioni con colore di sfondo */
 /* ESCLUSO l'header per non rompere il menu */
-.page_content_wrap .scheme_dark,
-.page_content_wrap .scheme_light {
+.page_content_wrap .elementor-section.scheme_dark,
+.page_content_wrap .elementor-section.scheme_light {
 	padding-top: 120px !important;
 	padding-bottom: 120px !important;
 	position: relative;
@@ -192,8 +230,8 @@ input.wpcf7-submit {
 
 /* Responsive spacing per tablet */
 @media screen and (max-width: 1279px) {
-	.page_content_wrap .scheme_dark,
-	.page_content_wrap .scheme_light {
+	.page_content_wrap .elementor-section.scheme_dark,
+	.page_content_wrap .elementor-section.scheme_light {
 		padding-top: 100px !important;
 		padding-bottom: 100px !important;
 	}
@@ -201,15 +239,15 @@ input.wpcf7-submit {
 
 /* Responsive spacing per mobile */
 @media screen and (max-width: 767px) {
-	.page_content_wrap .scheme_dark,
-	.page_content_wrap .scheme_light {
+	.page_content_wrap .elementor-section.scheme_dark,
+	.page_content_wrap .elementor-section.scheme_light {
 		padding-top: 80px !important;
 		padding-bottom: 80px !important;
 	}
 }
 
 /* Elemento decorativo: linea con gradiente sopra ogni sezione dark */
-.page_content_wrap .scheme_dark::before {
+.page_content_wrap .elementor-section.scheme_dark::before {
 	content: '';
 	position: absolute;
 	top: 50px;
@@ -223,7 +261,7 @@ input.wpcf7-submit {
 }
 
 /* Elemento decorativo: cerchi sopra ogni sezione light */
-.page_content_wrap .scheme_light::before {
+.page_content_wrap .elementor-section.scheme_light::before {
 	content: '';
 	position: absolute;
 	top: 50px;
@@ -243,8 +281,8 @@ input.wpcf7-submit {
 
 /* Nascondi decorazioni su mobile per semplicità */
 @media screen and (max-width: 767px) {
-	.page_content_wrap .scheme_dark::before,
-	.page_content_wrap .scheme_light::before {
+	.page_content_wrap .elementor-section.scheme_dark::before,
+	.page_content_wrap .elementor-section.scheme_light::before {
 		display: none;
 	}
 }
@@ -284,17 +322,17 @@ input.wpcf7-submit {
 }
 
 /* Aggiungi spazio extra tra heading dentro le sezioni dark */
-.page_content_wrap .scheme_dark .elementor-widget-heading {
+.page_content_wrap .elementor-section.scheme_dark .elementor-widget-heading {
 	margin-bottom: 40px !important;
 }
 
-.page_content_wrap .scheme_dark .elementor-widget-text-editor {
+.page_content_wrap .elementor-section.scheme_dark .elementor-widget-text-editor {
 	margin-bottom: 40px !important;
 }
 
 @media screen and (max-width: 767px) {
-	.page_content_wrap .scheme_dark .elementor-widget-heading,
-	.page_content_wrap .scheme_dark .elementor-widget-text-editor {
+	.page_content_wrap .elementor-section.scheme_dark .elementor-widget-heading,
+	.page_content_wrap .elementor-section.scheme_dark .elementor-widget-text-editor {
 		margin-bottom: 30px !important;
 	}
 }
