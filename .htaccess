@@ -1,0 +1,28 @@
+# BEGIN WordPress Custom Routing
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Serve index.html SOLO per la homepage (/)
+# Questo fa sì che gigey.it/ carichi index.html statico
+RewriteCond %{REQUEST_URI} ^/$
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^$ index.html [L]
+
+# WordPress API - DEVE rimanere attivo per Contact Form 7
+RewriteRule ^wp-json/ - [L]
+
+# WordPress Admin - DEVE rimanere accessibile
+RewriteRule ^wp-admin/ - [L]
+
+# WordPress Core files
+RewriteRule ^wp-includes/ - [L]
+RewriteRule ^wp-content/ - [L]
+
+# WordPress standard routing per tutto il resto
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress Custom Routing
