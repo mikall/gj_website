@@ -1175,7 +1175,7 @@ var _wpmejsSettings = {"pluginPath":"\/wp-includes\/js\/mediaelement\/","classPr
 <script type="text/javascript" src="wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" id="jquery-ui-core-js"></script>
 <script type="text/javascript" id="elementor-frontend-js-before">
 /* <![CDATA[ */
-var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Condividi su Facebook","shareOnTwitter":"Condividi su Twitter","pinIt":"Pinterest","download":"Download","downloadImage":"Scarica immagine","fullscreen":"Schermo intero","zoom":"Zoom","share":"Condividi","playVideo":"Riproduci video","previous":"Precedente","next":"Successivo","close":"Chiudi","a11yCarouselWrapperAriaLabel":"Carosello | Scorrimento orizzontale: Freccia sinistra & destra","a11yCarouselPrevSlideMessage":"Diapositiva precedente","a11yCarouselNextSlideMessage":"Prossima diapositiva","a11yCarouselFirstSlideMessage":"Questa \u00e9 la prima diapositiva","a11yCarouselLastSlideMessage":"Questa \u00e8 l'ultima diapositiva","a11yCarouselPaginationBulletMessage":"Vai alla diapositiva"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1280,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet verticale","value":1279,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet orizzontale","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.21.6","is_static":false,"experimentalFeatures":{"e_optimized_assets_loading":true,"e_swiper_latest":true,"container_grid":true,"home_screen":true,"landing-pages":true},"urls":{"assets":"https:\/\/gigey.it\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"stretched_section_container":".page_wrap","viewport_tablet":1279,"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":5002,"title":"Home%20-%20Gigey","excerpt":"","featuredImage":"https:\/\/gigey.it\/wp-content\/uploads\/2024\/06\/1-hero-1-1024x1024.webp"}};
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Condividi su Facebook","shareOnTwitter":"Condividi su Twitter","pinIt":"Pinterest","download":"Download","downloadImage":"Scarica immagine","fullscreen":"Schermo intero","zoom":"Zoom","share":"Condividi","playVideo":"Riproduci video","previous":"Precedente","next":"Successivo","close":"Chiudi","a11yCarouselWrapperAriaLabel":"Carosello | Scorrimento orizzontale: Freccia sinistra & destra","a11yCarouselPrevSlideMessage":"Diapositiva precedente","a11yCarouselNextSlideMessage":"Prossima diapositiva","a11yCarouselFirstSlideMessage":"Questa \u00e9 la prima diapositiva","a11yCarouselLastSlideMessage":"Questa \u00e8 l'ultima diapositiva","a11yCarouselPaginationBulletMessage":"Vai alla diapositiva"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1280,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet verticale","value":1279,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet orizzontale","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.21.6","is_static":false,"experimentalFeatures":{"e_optimized_assets_loading":true,"e_swiper_latest":true,"container_grid":true,"home_screen":true,"landing-pages":true},"urls":{"assets":"\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"stretched_section_container":".page_wrap","viewport_tablet":1279,"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":5002,"title":"Home%20-%20Gigey","excerpt":"","featuredImage":"https:\/\/gigey.it\/wp-content\/uploads\/2024\/06\/1-hero-1-1024x1024.webp"}};
 /* ]]> */
 </script>
 <script type="text/javascript" src="wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.21.6" id="elementor-frontend-js"></script>
@@ -1230,6 +1230,57 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 
 		if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
 	</script>
+
+<script id="gj-static-ui-fallback">
+/* Mirror statico: tab e accordion Elementor senza i chunk dinamici (non disponibili offline) */
+(function(){
+	function initTabs(){
+		document.querySelectorAll('.elementor-tabs').forEach(function(tabs){
+			var titles = tabs.querySelectorAll('.elementor-tab-title');
+			var contents = tabs.querySelectorAll('.elementor-tab-content');
+			function activate(idx){
+				titles.forEach(function(t){
+					var on = t.getAttribute('data-tab') === idx;
+					t.classList.toggle('elementor-active', on);
+					t.setAttribute('aria-selected', on ? 'true' : 'false');
+				});
+				contents.forEach(function(c){
+					var on = c.getAttribute('data-tab') === idx;
+					c.classList.toggle('elementor-active', on);
+					if(on){ c.removeAttribute('hidden'); c.style.display = 'block'; }
+					else { c.setAttribute('hidden','hidden'); c.style.display = 'none'; }
+				});
+			}
+			titles.forEach(function(t){
+				t.addEventListener('click', function(){ activate(t.getAttribute('data-tab')); });
+			});
+			var initial = tabs.querySelector('.elementor-tab-title[aria-selected="true"]') || titles[0];
+			if(initial){ activate(initial.getAttribute('data-tab')); }
+		});
+	}
+	function initAccordion(){
+		document.querySelectorAll('.elementor-accordion').forEach(function(acc){
+			acc.querySelectorAll('.elementor-accordion-item').forEach(function(item){
+				var title = item.querySelector('.elementor-tab-title');
+				var content = item.querySelector('.elementor-tab-content');
+				if(!title || !content) return;
+				content.style.display = 'none';
+				title.classList.remove('elementor-active');
+				title.setAttribute('aria-expanded','false');
+				title.addEventListener('click', function(){
+					var open = title.classList.contains('elementor-active');
+					title.classList.toggle('elementor-active', !open);
+					title.setAttribute('aria-expanded', !open ? 'true' : 'false');
+					content.style.display = open ? 'none' : 'block';
+				});
+			});
+		});
+	}
+	function init(){ try { initTabs(); initAccordion(); } catch(e){} }
+	if(document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', init); }
+	else { init(); }
+})();
+</script>
 
 </body>
 </html>
