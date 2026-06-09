@@ -1,0 +1,18 @@
+/* Footer Styles */
+
+.site-footer {
+  padding: 2rem;
+  background: #222733;
+  color: #fff;
+}
+
+.footer-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  text-align: center;
+  font-family: 'raleway', sans-serif;
+  font-size: 0.875rem;
+}

@@ -1,28 +1,32 @@
-# BEGIN WordPress Custom Routing
+# BEGIN WordPress
+# Le direttive (linee) tra "BEGIN WordPress" e "END WordPress" sono
+# generate dinamicamente, e dovrebbero essere modificate solo tramite i filtri di WordPress.
+# Ogni modifica alle direttive tra questi marcatori verrà sovrascritta.
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
 
 # Serve index.html SOLO per la homepage (/)
-# Questo fa sì che gigey.it/ carichi index.html statico
 RewriteCond %{REQUEST_URI} ^/$
 RewriteCond %{QUERY_STRING} ^$
 RewriteRule ^$ index.html [L]
 
-# WordPress API - DEVE rimanere attivo per Contact Form 7
-RewriteRule ^wp-json/ - [L]
-
-# WordPress Admin - DEVE rimanere accessibile
-RewriteRule ^wp-admin/ - [L]
-
-# WordPress Core files
-RewriteRule ^wp-includes/ - [L]
-RewriteRule ^wp-content/ - [L]
-
-# WordPress standard routing per tutto il resto
+# WordPress standard routing
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-# END WordPress Custom Routing
+
+# END WordPress
+
+# SP BEGIN php handler
+<IfModule mod_fcgid.c>
+          AddHandler fcgid-script .php .php5 .php7 .phtml
+          FcgidWrapper    /usr/local/cpanel/cgi-sys/sp-ea-php81 .php
+          FcgidWrapper    /usr/local/cpanel/cgi-sys/sp-ea-php81 .php5
+          FcgidWrapper    /usr/local/cpanel/cgi-sys/sp-ea-php81 .php7
+          FcgidWrapper    /usr/local/cpanel/cgi-sys/sp-ea-php81 .phtml
+</IfModule>
+# SP END php handler
